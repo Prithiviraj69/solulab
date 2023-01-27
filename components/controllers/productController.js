@@ -3,7 +3,8 @@ const Product = require('../models/productModel.js')
 const { create, find, findOne } = require('../helpers/common.js');
 
 
-// create New products 
+/*getProduct: a function that finds a product by its id and returns a response 
+with the product data if found, or a failure message if not. */
 const createProduct = catchAsync(async(req, res, next) => {
     try {
         const {
@@ -46,7 +47,8 @@ const createProduct = catchAsync(async(req, res, next) => {
 })
 
 
-//find product by id
+/*getProduct which is used to find a single product by its id. The function is defined as an asynchronous function 
+which takes in the request, response and next objects as parameters. */
 const getProduct = async(req, res, next) => {
     try {
 
@@ -72,7 +74,8 @@ const getProduct = async(req, res, next) => {
 };
 
 
-//Find all Product
+/*getAllProduct: a function that finds all products and returns a response with 
+the product data if found, or a failure message if not. */
 const getAllProduct = async(req, res, next) => {
     try {
 
@@ -95,7 +98,8 @@ const getAllProduct = async(req, res, next) => {
     }
 };
 
-//Update product by id
+/*updateProduct: a function that updates an existing product based on the request body and returns a response 
+with a success message and the updated product data. */
 const updateProduct = catchAsync(async(req, res, next) => {
     const doc = await Product.updateOne(req.params.productId, req.body, {
         new: true,
@@ -114,7 +118,8 @@ const updateProduct = catchAsync(async(req, res, next) => {
 });
 
 
-//Delete Product by id
+/*deleteProduct: a function that deletes a product by its id and returns a 
+response with a success message and no data. */
 const deleteProduct = catchAsync(async(req, res, next) => {
 
     const doc = await Product.deleteOne(req.params.productId);

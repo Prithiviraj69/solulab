@@ -1,4 +1,9 @@
-// create doc
+/*These are four utility functions that perform basic CRUD (Create, Read, Update, and Delete) 
+operations on a MongoDB model */
+
+
+/* The create function creates a new document in the specified model using the create method and returns
+ the created document. */
 const create = async(model, data) => {
     try {
         const doc = await model.create(data);
@@ -8,7 +13,8 @@ const create = async(model, data) => {
     }
 };
 
-// find one doc
+/*The findOne function finds a single document in the specified model that matches the provided data and
+returns it. */
 const findOne = async(model, data) => {
     try {
         data.isDeleted = false;
@@ -19,7 +25,8 @@ const findOne = async(model, data) => {
     }
 };
 
-// find all doc
+/*The find function finds all documents in the specified model that match the provided data 
+and returns them.  */
 const find = async(model, data) => {
     try {
         if (!data) {
@@ -33,7 +40,8 @@ const find = async(model, data) => {
     }
 };
 
-// delete one doc
+/*The deleteOne function finds and updates a single document in the specified model that matches the provided 
+data and sets the isDeleted field to true. All the functions return false if there is an error. */
 const deleteOne = async(model, data) => {
     try {
         console.log("deleteone");
